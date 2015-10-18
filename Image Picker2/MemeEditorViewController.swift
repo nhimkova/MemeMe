@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  Image Picker2
+//  MemeEditorViewController.swift
+//  MemeMe
 //
 //  Created by Quynh Tran on 03/10/2015.
 //  Copyright (c) 2015 Quynh. All rights reserved.
@@ -67,17 +67,24 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     /////////////////////Pick image methods
     @IBAction func pickAnImageFromGallery(sender: AnyObject) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        pickAnImageFrom("PhotoLibrary")
     }
     
     @IBAction func pickAnImageFromCamera(sender: AnyObject) {
+        pickAnImageFrom("Camera")
+    }
+    
+    func pickAnImageFrom(sourceType: String) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        
+        if (sourceType == "Camera") {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
@@ -106,7 +113,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func keyboardWillHide(notification: NSNotification) {
-            self.view.frame.origin.y = 0.0
+            view.frame.origin.y = 0.0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -128,7 +135,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Detects when a user touches the screen and tells the keyboard to disappear when that happens
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -142,7 +149,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func shareButton(sender: AnyObject) {
         let memedIm = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [memedIm], applicationActivities: nil)
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
         
         controller.completionWithItemsHandler = myHandler
     }
@@ -151,7 +158,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         returnedItems: [AnyObject]!, error: NSError!) {
             save()
             println("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(error)")
-            self.dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: nil)
     }
     
     func save() {
@@ -164,8 +171,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         toolbar.hidden = true
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

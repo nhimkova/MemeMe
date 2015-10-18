@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C0EAED48-2FAA-41C6-8B4C-971FD3777230</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Image Picker2</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A6E9FB7760371A708EDED98AB769CEF2FFC0F1F7</key>
@@ -16,7 +16,7 @@
 		<string>https://github.com/nhimkova/MemeMe.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Image Picker2.xcodeproj</string>
+	<string>Image Picker2.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A6E9FB7760371A708EDED98AB769CEF2FFC0F1F7</key>
