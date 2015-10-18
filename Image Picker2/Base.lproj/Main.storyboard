@@ -9,7 +9,7 @@
         <!--MemeMe-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Image_Picker2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MemeEditorViewController" customModule="Image_Picker2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -177,6 +177,7 @@
                         <outlet property="bottomTextField" destination="110-PL-cBv" id="gyx-sS-cC0"/>
                         <outlet property="cameraButton" destination="Axs-PF-jzA" id="LvL-9T-kI9"/>
                         <outlet property="imagePickerView" destination="QXR-Xs-2Kd" id="VDd-Cu-ik5"/>
+                        <outlet property="shareButton" destination="e2e-3m-lVF" id="4rz-Pq-riN"/>
                         <outlet property="toolbar" destination="UCx-dD-dSQ" id="ICC-pG-o3v"/>
                         <outlet property="topTextField" destination="Y5c-PN-uO9" id="IQT-gT-cFg"/>
                     </connections>

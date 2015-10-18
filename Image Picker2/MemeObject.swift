@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeObject: NSObject {
+struct MemeObject {
     var topText: String!
     var bottomText: String!
     var originalImage: UIImage!

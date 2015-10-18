@@ -7,25 +7,29 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>C0EAED48-2FAA-41C6-8B4C-971FD3777230</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Image Picker2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>A6E9FB7760371A708EDED98AB769CEF2FFC0F1F7</key>
 		<string>https://github.com/nhimkova/Uda_iOS_PitchPerfect.git</string>
+		<key>C8DFCCEA353E62A99B8A9E3A76A40C5D830794CF</key>
+		<string>https://github.com/nhimkova/MemeMe.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Image Picker2/Image Picker2.xcodeproj/project.xcworkspace</string>
+	<string>Image Picker2.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>A6E9FB7760371A708EDED98AB769CEF2FFC0F1F7</key>
 		<string>../../..</string>
+		<key>C8DFCCEA353E62A99B8A9E3A76A40C5D830794CF</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/nhimkova/Uda_iOS_PitchPerfect.git</string>
+	<string>https://github.com/nhimkova/MemeMe.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>A6E9FB7760371A708EDED98AB769CEF2FFC0F1F7</string>
+	<string>C8DFCCEA353E62A99B8A9E3A76A40C5D830794CF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>A6E9FB7760371A708EDED98AB769CEF2FFC0F1F7</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Apps</string>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C8DFCCEA353E62A99B8A9E3A76A40C5D830794CF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Image%20Picker2</string>
 		</dict>
 	</array>
 </dict>
