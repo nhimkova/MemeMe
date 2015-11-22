@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		083C1EF11BD2A76C002DBDEB /* MemeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C1EF01BD2A76C002DBDEB /* MemeObject.swift */; };
+		08616C291C02224700179F74 /* SentMemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08616C281C02224700179F74 /* SentMemesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		08AD32CA1BC02C9800E2E46D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AD32C91BC02C9800E2E46D /* AppDelegate.swift */; };
 		08AD32CC1BC02C9800E2E46D /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08AD32CB1BC02C9800E2E46D /* MemeEditorViewController.swift */; };
 		08AD32CF1BC02C9800E2E46D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08AD32CD1BC02C9800E2E46D /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		083C1EF01BD2A76C002DBDEB /* MemeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeObject.swift; sourceTree = "<group>"; };
+		08616C281C02224700179F74 /* SentMemesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesTableViewController.swift; sourceTree = "<group>"; };
 		08AD32C41BC02C9800E2E46D /* Image Picker2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Picker2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08AD32C81BC02C9800E2E46D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08AD32C91BC02C9800E2E46D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,10 +81,11 @@
 		08AD32C61BC02C9800E2E46D /* Image Picker2 */ = {
 			isa = PBXGroup;
 			children = (
+				08AD32CD1BC02C9800E2E46D /* Main.storyboard */,
 				08AD32C91BC02C9800E2E46D /* AppDelegate.swift */,
 				08AD32CB1BC02C9800E2E46D /* MemeEditorViewController.swift */,
 				083C1EF01BD2A76C002DBDEB /* MemeObject.swift */,
-				08AD32CD1BC02C9800E2E46D /* Main.storyboard */,
+				08616C281C02224700179F74 /* SentMemesTableViewController.swift */,
 				08AD32D01BC02C9800E2E46D /* Images.xcassets */,
 				08AD32D21BC02C9800E2E46D /* LaunchScreen.xib */,
 				08AD32C71BC02C9800E2E46D /* Supporting Files */,
@@ -159,7 +162,9 @@
 		08AD32BC1BC02C9800E2E46D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Quynh;
 				TargetAttributes = {
 					08AD32C31BC02C9800E2E46D = {
@@ -216,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				083C1EF11BD2A76C002DBDEB /* MemeObject.swift in Sources */,
+				08616C291C02224700179F74 /* SentMemesTableViewController.swift in Sources */,
 				08AD32CC1BC02C9800E2E46D /* MemeEditorViewController.swift in Sources */,
 				08AD32CA1BC02C9800E2E46D /* AppDelegate.swift in Sources */,
 			);
@@ -280,6 +286,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -346,6 +353,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Image Picker2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nhimo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -356,6 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Image Picker2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nhimo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -374,6 +383,7 @@
 				);
 				INFOPLIST_FILE = "Image Picker2Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nhimo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Image Picker2.app/Image Picker2";
 			};
@@ -389,6 +399,7 @@
 				);
 				INFOPLIST_FILE = "Image Picker2Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nhimo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Image Picker2.app/Image Picker2";
 			};

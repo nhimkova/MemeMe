@@ -53,7 +53,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         //Disable share button if no image
-        if let image = imagePickerView.image {
+        if let _ = imagePickerView.image {
             shareButton.enabled = true
         }
         else { shareButton.enabled = false }
@@ -87,7 +87,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imagePickerView.image = image
             imagePickerView.contentMode = UIViewContentMode.ScaleAspectFit
@@ -134,7 +134,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     // Detects when a user touches the screen and tells the keyboard to disappear when that happens
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
     
@@ -154,16 +154,21 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         controller.completionWithItemsHandler = myHandler
     }
     
-    func myHandler(activityType:String!, completed: Bool,
-        returnedItems: [AnyObject]!, error: NSError!) {
+    func myHandler(activityType:String?, completed: Bool,
+        returnedItems: [AnyObject]?, error: NSError?) {
             save()
-            println("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(error)")
+            print("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(error)")
             dismissViewControllerAnimated(true, completion: nil)
     }
     
     func save() {
         let memedIm = generateMemedImage()
-        let meme = MemeObject(top: topTextField.text, bottom: bottomTextField.text, image: imagePickerView.image!, meme: memedIm)
+        let meme = MemeObject(top: topTextField.text!, bottom: bottomTextField.text!, image: imagePickerView.image!, meme: memedIm)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.allSentMemes.append(meme)
     }
     
     func generateMemedImage() -> UIImage {
