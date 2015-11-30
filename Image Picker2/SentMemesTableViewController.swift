@@ -9,17 +9,29 @@
 import Foundation
 import UIKit
 
-class SentMemesTableViewController: UIViewController, UITableViewDataSource {
+class SentMemesTableViewController: UITableViewController {
     
-    var allSentMemes: [MemeObject] {
-        return (UIApplication.sharedApplication().delegate as! AppDelegate).allSentMemes
+    var allSentMemes = [MemeObject]()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        allSentMemes = appDelegate.allSentMemes
+        tableView.reloadData()
+        
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.allSentMemes.count
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        let n = self.allSentMemes.count
+        print("Cell count: \(n)")
+        return n
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SentMemesCell")!
         let meme = self.allSentMemes[indexPath.row]
@@ -31,7 +43,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
 

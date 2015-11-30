@@ -147,11 +147,19 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     /////////////////////////// Meme object methods
     
     @IBAction func shareButton(sender: AnyObject) {
-        let memedIm = generateMemedImage()
-        let controller = UIActivityViewController(activityItems: [memedIm], applicationActivities: nil)
+        let memedIm = [generateMemedImage()]
+        let controller = UIActivityViewController(activityItems: memedIm, applicationActivities: nil)
+
+        controller.completionWithItemsHandler = {
+            (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
+            self.save()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        //controller.completionWithItemsHandler = myHandler
+        
         presentViewController(controller, animated: true, completion: nil)
         
-        controller.completionWithItemsHandler = myHandler
     }
     
     func myHandler(activityType:String?, completed: Bool,
