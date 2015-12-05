@@ -13,11 +13,19 @@ struct MemeObject {
     var bottomText: String!
     var originalImage: UIImage!
     var memedImage: UIImage!
+    var imageName: String!
 
     init(top: String, bottom: String, image: UIImage, meme: UIImage) {
         self.topText = top
         self.bottomText = bottom
         self.originalImage = image
         self.memedImage = meme
+        
+        let dateFormatter = NSDateFormatter()
+        
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        
+        self.imageName = topText + dateFormatter.stringFromDate(NSDate())
     }
 }

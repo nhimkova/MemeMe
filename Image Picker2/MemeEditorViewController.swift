@@ -17,18 +17,26 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    var initialImage: UIImage!
+    var initialTopText: String!
+    var initialBottomText: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        prepareTextField(topTextField, defaultText: "TOP")
-        prepareTextField(bottomTextField, defaultText: "BOTTOM")
+        prepareTextField(topTextField, defaultText: "TOP", initialText: initialTopText)
+        prepareTextField(bottomTextField, defaultText: "BOTTOM", initialText: initialBottomText)
+        
+        if ( initialImage != nil )
+        {
+            imagePickerView?.image = initialImage
+        }
         
         toolbar.hidden = false
         
     }
     
-    func prepareTextField(textField: UITextField, defaultText: String) {
+    func prepareTextField(textField: UITextField, defaultText: String, initialText: String!) {
         super.viewDidLoad()
         let memeTextAttributes = [
             NSStrokeColorAttributeName : UIColor.blackColor(),
@@ -38,9 +46,18 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         ]
         textField.delegate = self
         textField.defaultTextAttributes = memeTextAttributes
-        textField.text = defaultText
+        
         textField.autocapitalizationType = .AllCharacters
         textField.textAlignment = .Center
+        
+        if (initialText == nil)
+        {
+            textField.text = defaultText
+        }
+        else
+        {
+            textField.text = initialText
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,6 +74,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             shareButton.enabled = true
         }
         else { shareButton.enabled = false }
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     // Unsubscribe
@@ -149,14 +168,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func shareButton(sender: AnyObject) {
         let memedIm = [generateMemedImage()]
         let controller = UIActivityViewController(activityItems: memedIm, applicationActivities: nil)
-
-        controller.completionWithItemsHandler = {
-            (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
-            self.save()
-            self.dismissViewControllerAnimated(true, completion: nil)
-        }
         
-        //controller.completionWithItemsHandler = myHandler
+        controller.completionWithItemsHandler = myHandler
         
         presentViewController(controller, animated: true, completion: nil)
         
@@ -164,9 +177,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func myHandler(activityType:String?, completed: Bool,
         returnedItems: [AnyObject]?, error: NSError?) {
-            save()
-            print("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(error)")
-            dismissViewControllerAnimated(true, completion: nil)
+            if (completed)
+            {
+                save()
+                print("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(error)")
+                dismissViewControllerAnimated(true, completion: nil)
+            }
     }
     
     func save() {
@@ -192,6 +208,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         toolbar.hidden = false
         
         return memedImage
+    }
+    
+    
+    @IBAction func cancelMemeEditor(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
