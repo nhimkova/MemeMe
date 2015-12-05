@@ -21,7 +21,7 @@ class SentMemesTableViewController: UITableViewController {
         allSentMemes = appDelegate.allSentMemes
         tableView.reloadData()
         
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
         
     }
     

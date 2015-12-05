@@ -45,7 +45,7 @@ class SentMemesCollectionViewController : UICollectionViewController {
         let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeMeDetailsViewController") as! MemeDetailsViewController
         detailController.meme = self.allSentMemes[indexPath.row]
         
-        self.navigationController!.pushViewController(detailController, animated: true)
+        navigationController!.pushViewController(detailController, animated: true)
     }
 
     

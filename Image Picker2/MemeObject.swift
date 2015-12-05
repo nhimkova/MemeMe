@@ -20,12 +20,5 @@ struct MemeObject {
         self.bottomText = bottom
         self.originalImage = image
         self.memedImage = meme
-        
-        let dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        
-        self.imageName = topText + dateFormatter.stringFromDate(NSDate())
     }
 }

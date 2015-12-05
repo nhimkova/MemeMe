@@ -54,9 +54,8 @@ class MemeDetailsViewController : UIViewController {
         
         let navController = UINavigationController(rootViewController: editorController)
         
-        self.presentViewController(navController, animated:true, completion: nil)
-        
-        //self.navigationController!.pushViewController(editorController, animated: true)
+        presentViewController(navController, animated:true, completion: nil)
+
     }
     
     @IBAction func deleteMeme(sender: AnyObject) {
